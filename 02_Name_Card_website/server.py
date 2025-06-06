@@ -112,6 +112,7 @@ class BusinessCard(db.Model):
 # Make db accessible when imported
 db = db
 
+# Website UI
 @app.route("/ui")
 def api_ui():
     return render_template_string("""
@@ -187,9 +188,6 @@ def api_ui():
 
 # running the app and setting the required env variable
 if __name__ == "__main__":
-    # only run if it's not imported
-    # so only if the file server.py is run directly and not imported
-    # by another file
 
     # adding the env variable for Flask to work
     # > $env:FLASK_APP = "server"
@@ -198,7 +196,6 @@ if __name__ == "__main__":
     os.environ["FLASK_APP"] = "server"
 
     # > flask run
-    # start server
-    # in a debug mode not suitable for production !!
+
     app.run(debug=True)
 
